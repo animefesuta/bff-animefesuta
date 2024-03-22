@@ -9,4 +9,9 @@ export class LivestreamController {
   async create() {
     return this.livestreamService.create();
   }
+
+  @Get('/latest')
+  async getLatestStream() {
+    return this.livestreamService.getLatestStream();
+  }
 }
