@@ -1,10 +1,12 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { LivestreamService } from './livestream.service';
 
 @Controller('livestream')
 export class LivestreamController {
   constructor(private readonly livestreamService: LivestreamService) {}
 
-  @Post()
-  create() {}
+  @Get('/create')
+  async create() {
+    return this.livestreamService.create();
+  }
 }
