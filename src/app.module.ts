@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { LivestreamModule } from './livestream/livestream.module';
 
 @Module({
-  imports: [],
+  imports: [LivestreamModule],
   controllers: [],
   providers: [],
 })
