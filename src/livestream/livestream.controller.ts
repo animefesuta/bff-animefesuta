@@ -16,7 +16,7 @@ export class LivestreamController {
 
   @Get('/getLiveRoom')
   async getLiveRoom(@Headers('Authorization') token: string) {
-    return this.livestreamService.getLatestStream(token);
+    return this.livestreamService.getLiveRoom(token);
   }
 
   @Get('/close')
@@ -30,5 +30,10 @@ export class LivestreamController {
     @Headers('Authorization') token: string,
   ) {
     return this.livestreamService.updateStream(createLivestreamDto, token);
+  }
+
+  @Get('/latest')
+  async getLatestStream(@Headers('Authorization') token: string) {
+    return this.livestreamService.getLatestStream(token);
   }
 }

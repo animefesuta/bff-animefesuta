@@ -33,9 +33,9 @@ export class LivestreamService {
     return data;
   }
 
-  async getLatestStream(token: string) {
+  async getLiveRoom(token: string) {
     const { data } = await axiosInstance.get(
-      '/api/v1/fesuta/live/getLatestStream',
+      '/api/v1/fesuta/live/getLiveRoom',
       {
         headers: {
           'Content-Type': 'application/json',
@@ -70,6 +70,16 @@ export class LivestreamService {
         },
       },
     );
+    return data;
+  }
+
+  async getLatestStream(token: string) {
+    const { data } = await axiosInstance.get('/api/v1/fesuta/live/latestRoom', {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
     return data;
   }
 }
