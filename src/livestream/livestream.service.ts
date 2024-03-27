@@ -82,4 +82,17 @@ export class LivestreamService {
     });
     return data;
   }
+
+  async getRoomStream(token: string, uid: string) {
+    const { data } = await axiosInstance.get(
+      `/api/v1/fesuta/live/getRoomStream/${uid}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+      },
+    );
+    return data;
+  }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Headers, Post } from '@nestjs/common';
+import { Body, Controller, Get, Headers, Param, Post } from '@nestjs/common';
 import { LivestreamService } from './livestream.service';
 import { CreateLivestreamDto } from './dto/create-livestream.dto';
 
@@ -35,5 +35,13 @@ export class LivestreamController {
   @Get('/latest')
   async getLatestStream(@Headers('Authorization') token: string) {
     return this.livestreamService.getLatestStream(token);
+  }
+
+  @Get('/getRoomStream/:uid')
+  async getRoomStream(
+    @Headers('Authorization') token: string,
+    @Param('uid') uid: string,
+  ) {
+    return this.livestreamService.getRoomStream(token, uid);
   }
 }
